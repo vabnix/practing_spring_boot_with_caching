@@ -36,6 +36,10 @@ dependencies {
 	//caffeine cache
 	implementation group: 'com.github.ben-manes.caffeine', name: 'caffeine', version: '3.1.8'
 
+	//Database connection
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	runtimeOnly 'org.postgresql:postgresql'
+
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
