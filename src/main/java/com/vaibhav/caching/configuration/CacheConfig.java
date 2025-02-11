@@ -16,22 +16,22 @@ import java.util.concurrent.TimeUnit;
 @EnableCaching
 public class CacheConfig {
 
-    @Bean
-    public CacheManager cacheManager() {
-        CaffeineCacheManager cacheManager = new CaffeineCacheManager();
-        cacheManager.setCacheNames(Arrays.asList("city"));
-        cacheManager.setCaffeine(Caffeine.newBuilder()
-                        .expireAfterWrite(60, TimeUnit.SECONDS)
-                        .maximumSize(100));
-        return cacheManager;
-    }
-
 //    @Bean
-//    public CacheManager weatherCache(){
-//        SimpleCacheManager cacheManager = new SimpleCacheManager();
-//        cacheManager.setCaches(Arrays.asList(
-//                new ConcurrentMapCache("city")
-//        ));
+//    public CacheManager cacheManager() {
+//        CaffeineCacheManager cacheManager = new CaffeineCacheManager();
+//        cacheManager.setCacheNames(Arrays.asList("city"));
+//        cacheManager.setCaffeine(Caffeine.newBuilder()
+//                        .expireAfterWrite(60, TimeUnit.SECONDS)
+//                        .maximumSize(100));
 //        return cacheManager;
 //    }
+
+    @Bean
+    public CacheManager weatherCache(){
+        SimpleCacheManager cacheManager = new SimpleCacheManager();
+        cacheManager.setCaches(Arrays.asList(
+                new ConcurrentMapCache("city")
+        ));
+        return cacheManager;
+    }
 }
